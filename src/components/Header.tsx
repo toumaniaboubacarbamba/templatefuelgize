@@ -33,7 +33,7 @@ const nav: { label: string; href?: string; children?: { label: string; href: str
 
 export default function Header({ solid = false, active = "Home" }: { solid?: boolean; active?: string }) {
   return (
-    <div className={`${solid ? "relative bg-[#787750]" : "absolute inset-x-0 top-0 z-20"} text-white`}>
+    <div className={`${solid ? "relative z-20 bg-[#787750]" : "absolute inset-x-0 top-0 z-20"} text-white`}>
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-12 py-5 text-[13px]">
         <div className="flex items-center gap-12">
           <span className="flex items-center gap-3"><MapPin size={16} />2715 Ash Dr. San Jose, South Dakota 83475</span>
@@ -42,39 +42,39 @@ export default function Header({ solid = false, active = "Home" }: { solid?: boo
         <span className="flex items-center gap-3"><Phone size={16} />(208) 555-0112, (316) 555-0116</span>
       </div>
 
-      <header className="mx-4 flex h-[80px] items-center justify-between bg-[#1a1a1a]/90 px-8 backdrop-blur">
+      <header className="mx-4 flex h-[80px] items-center justify-between bg-[#1a1a1a]/90 px-8 backdrop-blur overflow-visible">
         <Logo />
-        <nav className="ml-24 mr-auto flex items-center text-[15px]">
-  {nav.map((item, i) => (
-    <div key={item.label} className="flex items-center">
-      {i > 0 && <span className="mx-8 h-4 w-px bg-white/20" />}
-      <div className="group relative">
-        <Link
-          href={item.href ?? item.children?.[0].href ?? "#"}
-          className={`flex items-center gap-1.5 py-2 transition-colors group-hover:text-white ${
-            item.label === active ? "text-white underline underline-offset-8" : "text-white/70 group-hover:underline group-hover:underline-offset-8"
-          }`}
-        >
-          {item.label}
-          {item.children && <ChevronDown size={14} />}
-        </Link>
-        {item.children && (
-          <div className="invisible absolute left-0 top-full z-30 pt-3 opacity-0 transition duration-200 group-hover:visible group-hover:opacity-100">
-            <ul className="min-w-[145px] bg-white py-3 text-ink shadow-xl">
-              {item.children.map((c) => (
-                <li key={c.label}>
-                  <Link href={c.href} className="block whitespace-nowrap px-6 py-[10px] text-[16px] transition-colors hover:text-brand">
-                    {c.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </div>
-    </div>
-  ))}
-</nav>
+        <nav className="ml-24 mr-auto flex items-center text-[15px] overflow-visible">
+          {nav.map((item, i) => (
+            <div key={item.label} className="flex items-center">
+              {i > 0 && <span className="mx-8 h-4 w-px bg-white/20" />}
+              <div className="group relative">
+                <Link
+                  href={item.href ?? item.children?.[0].href ?? "#"}
+                  className={`flex items-center gap-1.5 py-2 transition-colors ${
+                    item.label === active ? "text-white underline underline-offset-8" : "text-white/70 group-hover:text-white group-hover:underline group-hover:underline-offset-8"
+                  }`}
+                >
+                  {item.label}
+                  {item.children && <ChevronDown size={14} />}
+                </Link>
+                {item.children && (
+                  <div className="pointer-events-none absolute left-0 top-full z-50 pt-3 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-hover:translate-y-0 -translate-y-1">
+                    <ul className="min-w-[170px] bg-white py-3 text-ink shadow-xl">
+                      {item.children.map((c) => (
+                        <li key={c.label}>
+                          <Link href={c.href} className="block whitespace-nowrap px-6 py-[10px] text-[16px] transition-colors hover:text-brand">
+                            {c.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </nav>
         <div className="flex items-center gap-6 text-[15px]">
           <a href="#" className="flex items-center gap-1.5 font-bold"><Plus size={14} />Careers</a>
           <span className="h-4 w-px bg-white/20" />
