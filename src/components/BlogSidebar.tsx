@@ -1,13 +1,17 @@
 import { Camera, MessageCircle, Search, Send } from "lucide-react";
 
-const categories = [["Home Selling", 3], ["Maintenance Tips", 3], ["Market Trends", 3]] as const;
-const tags = ["#Marketing", "#Property", "#RealEstate"];
+const defaultCategories: [string, number][] = [["Home Selling", 3], ["Maintenance Tips", 3], ["Market Trends", 3]];
+const defaultTags = ["#Marketing", "#Property", "#RealEstate"];
 
-export default function BlogSidebar() {
+export default function BlogSidebar({
+  placeholder = "",
+  categories = defaultCategories,
+  tags = defaultTags,
+}: { placeholder?: string; categories?: [string, number][]; tags?: string[] }) {
   return (
     <aside className="w-[300px] shrink-0">
       <div className="flex h-[50px]">
-        <input aria-label="Search" className="min-w-0 flex-1 bg-mist px-4 outline-none" />
+        <input aria-label="Search" placeholder={placeholder} className="min-w-0 flex-1 bg-mist px-4 text-[14px] outline-none" />
         <button aria-label="Search" className="grid w-[50px] place-items-center bg-brand text-white"><Search size={16} /></button>
       </div>
 

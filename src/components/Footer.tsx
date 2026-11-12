@@ -8,9 +8,10 @@ const cols = [
 	{ h: "Contact", l: ["FAQ"] },
 ];
 
-export default function Footer({ contactBand = false }: { contactBand?: boolean }) {
+export default function Footer({ contactBand = false, hideBand = false }: { contactBand?: boolean; hideBand?: boolean }) {
 	return (
 		<>
+		{!hideBand && (
 			<section className={`relative isolate text-white ${contactBand ? "h-[320px]" : "h-[200px]"}`}>
 				<div className="absolute inset-0 -z-10 bg-cover bg-center" style={{ backgroundImage: "url(/images/newsletter-bg.webp)" }} />
 				<div className="absolute inset-0 -z-10 bg-black/55" />
@@ -43,6 +44,7 @@ export default function Footer({ contactBand = false }: { contactBand?: boolean 
 					)}
 				</div>
 			</section>
+			)}
 
 			<footer className="bg-[#262626] pb-10 pt-16 text-white">
 				<div className={container}>
