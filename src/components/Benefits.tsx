@@ -8,14 +8,23 @@ const items = [
   { t: "Global Market", Icon: Handshake },
 ];
 
-export default function Benefits() {
+export default function Benefits({ variant = "home" }: { variant?: "home" | "services" }) {
   return (
     <section className="pb-28">
-      <div className={`${container} grid grid-cols-2 items-end gap-10`}>
-        <div className="relative min-h-[460px]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/benefits.webp" alt="" className="absolute -left-10 bottom-0 h-[400px] w-[400px] object-cover" />
-        </div>
+      <div className={`${container} grid grid-cols-2 gap-10 ${variant === "services" ? "items-center" : "items-end"}`}>
+        {variant === "services" ? (
+          <div className="relative">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/benefits.webp" alt="" className="h-[426px] w-[506px] object-cover" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/about.webp" alt="" className="absolute -left-12 bottom-6 h-[180px] w-[180px] object-cover" />
+          </div>
+        ) : (
+          <div className="relative min-h-[460px]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/benefits.webp" alt="" className="absolute -left-10 bottom-0 h-[400px] w-[400px] object-cover" />
+          </div>
+        )}
         <div>
           <Eyebrow>Our Benefits</Eyebrow>
           <Title className="mt-5">The Future Of Oil &amp; Gas Is Here</Title>
