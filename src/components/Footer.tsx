@@ -53,9 +53,9 @@ export default function Footer({ contactBand = false, hideBand = false }: { cont
 							<Logo />
 							<p className="mt-6 text-[14px]">Education is a fundamental human right.</p>
 							<ul className="mt-5 space-y-4 text-[14px]">
-								<li className="flex items-center gap-4"><Mail size={14} className="text-brand" />onlineedu@examplemail.com</li>
-								<li className="flex items-center gap-4"><Phone size={14} className="text-brand" />(405) 555-0128</li>
-								<li className="flex items-start gap-4"><MapPin size={14} className="mt-1 shrink-0 text-brand" />87206 Keneth Plains, New Jackson, GA 91098</li>
+								<li className="flex items-center gap-4"><Mail size={14} className="text-brand" />kakashi@copie.com</li>
+								<li className="flex items-center gap-4"><Phone size={14} className="text-brand" />(225) 838-21405</li>
+								<li className="flex items-start gap-4"><MapPin size={14} className="mt-1 shrink-0 text-brand" />Adjamé Gare Nord 83</li>
 							</ul>
 						</div>
 						{cols.map((c) => (
@@ -72,7 +72,7 @@ export default function Footer({ contactBand = false, hideBand = false }: { cont
 					</div>
 					<div className="mt-24 flex items-center justify-between text-[12px] text-white/70">
 						<div className="flex gap-8">{["About us", "Contact", "Privacy policy", "Sitemap", "Terms of Use"].map((x) => <a key={x} href="#">{x}</a>)}</div>
-						<span>© Promo Theme 2024, All Rights Reserved</span>
+						<span>© Reproduction of the template for educational purposes Promo Theme 2024, All Rights Reserved</span>
 					</div>
 				</div>
 			</footer>
