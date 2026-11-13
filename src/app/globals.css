@@ -22,3 +22,6 @@ body { background: var(--color-paper); color: var(--color-ink); font-family: var
 .dots .swiper-pagination { position: static; display: flex; justify-content: center; gap: 14px; margin-top: 28px; }
 .dots .swiper-pagination-bullet { width: 8px; height: 8px; margin: 0 !important; border-radius: 0; background: #cfcfd4; opacity: 1; }
 .dots .swiper-pagination-bullet-active { background: #0c0d0e; }
+
+/* Jamais de défilement horizontal de la page */
+html, body { overflow-x: hidden; }

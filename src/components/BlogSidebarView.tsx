@@ -17,11 +17,11 @@ export default function BlogSidebarView({ page }: { page: number }) {
       <Header solid active="Blog" />
       <PageHero center compact title="Powering Your Energy Needs With Innovative Solutions" current="Blog + Sidebar" image="/images/svc-1.webp" />
 
-      <section className="py-24">
-        <div className={`${container} flex gap-[34px]`}>
+      <section className="py-14 lg:py-14 lg:py-14 lg:py-14 lg:py-14 lg:py-24">
+        <div className={`${container} flex flex-col gap-10 lg:flex-row lg:flex-col gap-10 lg:flex-row lg:flex-col gap-10 lg:flex-row lg:flex-col gap-10 lg:flex-row lg:flex-col gap-10 lg:flex-row lg:gap-[34px]`}>
           <BlogSidebar />
-          <div className="flex-1">
-            <div className="grid grid-cols-3 gap-x-8 gap-y-14">
+          <div className="min-w-0 min-w-0 min-w-0 min-w-0 min-w-0 flex-1">
+            <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 sm:gap-x-8 lg:grid-cols-3 lg:gap-y-14">
               {ordered.map((p) => <PostCard key={p.title} post={p} stack />)}
             </div>
             <Pagination page={page} total={postPages.length} hrefFor={href} />

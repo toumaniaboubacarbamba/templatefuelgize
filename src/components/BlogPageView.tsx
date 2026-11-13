@@ -15,9 +15,9 @@ export default function BlogPageView({ page }: { page: number }) {
       <Header solid active="Blog" />
       <PageHero center compact title="Powering Your Energy Needs With Innovative Solutions" current="Blog" image="/images/svc-1.webp" />
 
-      <section className="py-24">
+      <section className="py-14 lg:py-14 lg:py-14 lg:py-14 lg:py-14 lg:py-24">
         <div className={container}>
-          <div className="grid grid-cols-2 gap-x-[35px] gap-y-14">
+          <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-2 lg:gap-x-[35px] lg:gap-y-14">
             {postPages[page - 1].map((p) => <PostCard key={p.title} post={p} />)}
           </div>
           <div className="mt-16 flex items-center justify-center gap-4 text-[15px] font-bold">

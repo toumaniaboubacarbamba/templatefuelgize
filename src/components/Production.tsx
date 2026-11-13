@@ -22,10 +22,10 @@ export default function Production() {
         <Title className="mt-5 !text-[56px]">Fueling Your Success: Oil &amp; Gas Solutions</Title>
       </div>
       <div className="relative mt-14">
-        <button aria-label="Previous" onClick={() => sw.current?.slidePrev()} className="absolute left-7 top-[150px] z-10 grid h-10 w-10 place-items-center bg-mist"><ChevronLeft size={16} /></button>
-        <button aria-label="Next" onClick={() => sw.current?.slideNext()} className="absolute right-7 top-[150px] z-10 grid h-10 w-10 place-items-center bg-mist"><ChevronRight size={16} /></button>
+        <button aria-label="Previous" onClick={() => sw.current?.slidePrev()} className="absolute left-7 top-[150px] z-10 hidden lg:grid h-10 w-10 place-items-center bg-mist"><ChevronLeft size={16} /></button>
+        <button aria-label="Next" onClick={() => sw.current?.slideNext()} className="absolute right-7 top-[150px] z-10 hidden lg:grid h-10 w-10 place-items-center bg-mist"><ChevronRight size={16} /></button>
         <div className={`${container} dots`}>
-          <Swiper onSwiper={(s) => (sw.current = s)} modules={[Pagination]} pagination={{ clickable: true }} slidesPerView={3} spaceBetween={30}>
+          <Swiper onSwiper={(s) => (sw.current = s)} modules={[Pagination]} pagination={{ clickable: true }} slidesPerView={1} spaceBetween={20} breakpoints={{ 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3, spaceBetween: 30 } }}>
             {slides.map((s) => (
               <SwiperSlide key={s.t}>
                 <div className="flex h-[340px] items-end bg-cover bg-center p-6 text-white"

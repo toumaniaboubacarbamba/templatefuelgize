@@ -23,15 +23,15 @@ export default function ServicesPage() {
       <Header solid active="Pages" />
       <PageHero title="Innovating For A Sustainable Tomorrow In Oil & Gas" current="Services" image="/images/svc-1.webp" />
 
-      <section className="pb-20 pt-24">
+      <section className="pb-14 pt-14 lg:pb-20 lg:pt-24">
         <div className={container}>
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between">
             <Title className="!text-[44px]">Explore Our Services</Title>
             <a href="#" className="inline-flex items-center gap-3 bg-brand px-8 py-[14px] text-[15px] font-bold text-white hover:bg-ink">
               Send A Request <Plus size={14} />
             </a>
           </div>
-          <div className="mt-12 grid grid-cols-4 gap-[30px]">
+          <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4 lg:gap-[30px]">
             {services.map((s) => (
               <a key={s.t} href="#" className="flex h-[285px] items-end bg-cover bg-center p-6 text-white"
                 style={{ backgroundImage: `linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,.1) 65%), url(/images/${s.img}.webp)` }}>

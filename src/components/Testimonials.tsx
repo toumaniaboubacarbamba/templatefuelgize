@@ -13,12 +13,12 @@ export default function Testimonials() {
   const [i, setI] = useState(0);
   const q = quotes[i];
   return (
-    <section className="pb-28">
+    <section className="pb-16 lg:pb-16 lg:pb-16 lg:pb-16 lg:pb-16 lg:pb-28">
       <div className={container}>
         <Eyebrow>Testimonials</Eyebrow>
         <Title className="mt-5">Fueling Your Success</Title>
-        <div className="relative mt-10 h-[517px] bg-cover bg-center" style={{ backgroundImage: "url(/images/testimonial-bg.webp)" }}>
-          <div className="absolute left-[459px] top-[80px] w-[702px] bg-[#262626] p-10 text-white">
+        <div className="relative mt-10 bg-cover bg-center pt-[160px] lg:h-[517px] lg:pt-0" style={{ backgroundImage: "url(/images/testimonial-bg.webp)" }}>
+          <div className="relative w-full bg-[#262626] p-6 text-white sm:p-10 lg:absolute lg:left-[459px] lg:top-[80px] lg:w-[702px]">
             <div className="flex gap-2 text-[#ffb400]">{[0, 1, 2, 3, 4].map((s) => <Star key={s} size={18} fill="currentColor" />)}</div>
             <p className="mt-8 text-[18px] leading-8">{q.text}</p>
             <div className="mt-8 flex items-center justify-between">

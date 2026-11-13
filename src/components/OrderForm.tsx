@@ -5,7 +5,7 @@ const field = "mt-2 block w-full bg-mist px-5 text-[14px] outline-none";
 
 export default function OrderForm() {
   return (
-    <form className="mt-12 grid grid-cols-2 gap-[30px]">
+    <form className="mt-10 grid grid-cols-1 gap-5 lg:mt-12 lg:grid-cols-2 lg:gap-[30px]">
       <div className="space-y-5">
         <label className="block"><span className={label}>Your Name</span><input className={`${field} h-[50px]`} /></label>
         <label className="block"><span className={label}>Your E-Mail</span><input type="email" className={`${field} h-[50px]`} /></label>

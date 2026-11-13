@@ -17,10 +17,10 @@ export default function ProductionSlider() {
   const sw = useRef<SwiperType | null>(null);
   return (
     <div className="relative mt-12">
-      <button aria-label="Previous" onClick={() => sw.current?.slidePrev()} className="absolute left-7 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center bg-brand text-white"><ChevronLeft size={16} /></button>
-      <button aria-label="Next" onClick={() => sw.current?.slideNext()} className="absolute right-7 top-1/2 z-10 grid h-10 w-10 -translate-y-1/2 place-items-center bg-brand text-white"><ChevronRight size={16} /></button>
+      <button aria-label="Previous" onClick={() => sw.current?.slidePrev()} className="absolute left-7 top-1/2 z-10 hidden lg:grid h-10 w-10 -translate-y-1/2 place-items-center bg-brand text-white"><ChevronLeft size={16} /></button>
+      <button aria-label="Next" onClick={() => sw.current?.slideNext()} className="absolute right-7 top-1/2 z-10 hidden lg:grid h-10 w-10 -translate-y-1/2 place-items-center bg-brand text-white"><ChevronRight size={16} /></button>
       <div className={container}>
-        <Swiper onSwiper={(s) => (sw.current = s)} slidesPerView={2} spaceBetween={30}>
+        <Swiper onSwiper={(s) => (sw.current = s)} slidesPerView={1} spaceBetween={20} breakpoints={{ 768: { slidesPerView: 2, spaceBetween: 30 } }}>
           {slides.map((s) => (
             <SwiperSlide key={s.t}>
               <a href="#" className="flex h-[360px] items-end bg-cover bg-center p-8 text-white"

@@ -39,9 +39,9 @@ export default function PostCard({ post, stack = false }: { post: Post; stack?: 
     );
   }
   return (
-    <article className="flex gap-7">
+    <article className="flex flex-col gap-5 sm:flex-row sm:flex-col gap-5 sm:flex-row sm:flex-col gap-5 sm:flex-row sm:flex-col gap-5 sm:flex-row sm:flex-col gap-5 sm:flex-row sm:gap-7">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`/images/${post.img}.webp`} alt="" className="h-[180px] w-[180px] shrink-0 object-cover" />
+      <img src={`/images/${post.img}.webp`} alt="" className="h-[220px] w-full object-cover sm:h-[180px] sm:w-[180px] sm:shrink-0" />
       <div className="pt-1">
         <div className="text-[11px] font-bold uppercase">
           {post.date} <span className="mx-2">•</span> Admin

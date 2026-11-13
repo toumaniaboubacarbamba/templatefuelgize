@@ -16,15 +16,15 @@ export default function ProductionPage() {
       <Header solid active="Pages" />
       <PageHero center compact title="Energizing Your World: Oil & Gas Production" current="Production" image="/images/hero-bg.webp" position="center 25%" />
 
-      <section className="pb-20 pt-20">
+      <section className="pb-14 pt-14 lg:pb-20 lg:pt-20">
         <div className={container}>
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between">
             <Title className="!text-[44px]">Explore Our Production Portfolio</Title>
             <a href="#" className="inline-flex items-center gap-3 bg-brand px-8 py-[14px] text-[15px] font-bold text-white hover:bg-ink">
               Send A Request <Plus size={14} />
             </a>
           </div>
-          <div className="mt-12 grid grid-cols-3 gap-[30px]">
+          <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-[30px]">
             {items.map((img, i) => (
               <Link key={i} href="/production/product-list" className="block overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}

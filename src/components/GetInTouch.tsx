@@ -9,10 +9,10 @@ const rows = [
 
 export default function GetInTouch({ plain = false }: { plain?: boolean }) {
 	return (
-		<section className={`${plain ? "" : "bg-[#f3f3f5]"} py-24`}>
-			<div className={`${container} grid grid-cols-[400px_1fr] items-center gap-20`}>
+		<section className={`${plain ? "" : "bg-[#f3f3f5]"} py-16 lg:py-16 lg:py-16 lg:py-16 lg:py-16 lg:py-24`}>
+			<div className={`${container} grid grid-cols-1 items-center gap-10 lg:grid-cols-[400px_1fr] lg:gap-20`}>
 				{/* eslint-disable-next-line @next/next/no-img-element */}
-				<img src="/images/contact.webp" alt="" className="h-[420px] w-[400px] object-cover" />
+				<img src="/images/contact.webp" alt="" className="h-[360px] w-full max-w-[400px] object-cover lg:h-[420px]" />
 				<div>
 					<Eyebrow>Get In Touch</Eyebrow>
 					<Title className="mt-5 max-w-[700px] !text-[56px]">We Are Your Reliable Partners For The Best Energy Solutions</Title>

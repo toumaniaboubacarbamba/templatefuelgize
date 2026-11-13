@@ -13,8 +13,8 @@ const items = [
 export default function Achievements({ variant = "home" }: { variant?: "home" | "about" }) {
   const [active, setActive] = useState(0);
   return (
-    <section className={variant === "about" ? "py-24" : "py-28"}>
-      <div className={`${container} grid grid-cols-2 gap-16`}>
+    <section className={variant === "about" ? "py-14 lg:py-24" : "py-14 lg:py-28"}>
+      <div className={`${container} grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16`}>
         <div className="max-w-[600px]">
           <Eyebrow>Our Achievements</Eyebrow>
           <Title className="mt-5">Powering Your Future</Title>
@@ -39,10 +39,10 @@ export default function Achievements({ variant = "home" }: { variant?: "home" | 
         <div className="relative">
           {variant === "about" ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src="/images/contact.webp" alt="" className="ml-auto h-[420px] w-[392px] object-cover" />
+            <img src="/images/contact.webp" alt="" className="h-[320px] w-full object-cover lg:ml-auto lg:h-[420px] lg:w-[392px]" />
           ) : (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src="/images/achievements.webp" alt="" className="h-[560px] w-full object-cover" />
+            <img src="/images/achievements.webp" alt="" className="h-[320px] w-full object-cover lg:h-[560px]" />
           )}
         </div>
       </div>

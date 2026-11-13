@@ -9,17 +9,17 @@ const posts = [
 
 export default function Blog() {
   return (
-    <section className="pb-28">
+    <section className="pb-16 lg:pb-16 lg:pb-16 lg:pb-16 lg:pb-16 lg:pb-28">
       <div className={container}>
         <div className="text-center">
           <Eyebrow center>Blog &amp; News</Eyebrow>
           <Title className="mt-5 !text-[56px]">Powering Your Energy Needs With Innovative Solutions</Title>
         </div>
-        <div className="mt-14 grid grid-cols-2 gap-x-10 gap-y-10">
+        <div className="mt-10 grid grid-cols-1 gap-10 lg:mt-14 lg:grid-cols-2">
           {posts.map((p) => (
-            <article key={p.t} className="flex gap-6">
+            <article key={p.t} className="flex flex-col flex-col flex-col flex-col flex-col gap-6 sm:flex-row sm:flex-row sm:flex-row sm:flex-row sm:flex-row">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={`/images/${p.img}.webp`} alt="" className="h-[210px] w-[190px] shrink-0 object-cover" />
+              <img src={`/images/${p.img}.webp`} alt="" className="h-[220px] w-full sm:h-[210px] sm:w-[190px] sm:shrink-0 object-cover" />
               <div className="pt-2">
                 <div className="text-[11px] font-bold uppercase">February 18, 2024 <span className="mx-2">•</span> Admin</div>
                 <h3 className="mt-4 text-[21px] font-bold leading-7">{p.t}</h3>

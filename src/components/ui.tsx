@@ -9,8 +9,21 @@ export function Eyebrow({ children, center = false, className = "" }: { children
   );
 }
 
+
+
+// Les anciens appels `!text-[56px]` ou `!text-[44px]` restent valides : on les convertit en tailles responsives.
+const titleSizes: Record<string, string> = {
+  "64": "text-[34px] sm:text-[46px] lg:text-[64px]",
+  "56": "text-[32px] sm:text-[42px] lg:text-[56px]",
+  "44": "text-[28px] sm:text-[34px] lg:text-[44px]",
+};
+
+// Les anciens appels `!text-[56px]` ou `!text-[44px]` restent valides : on les convertit en tailles responsives.
 export function Title({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <h2 className={`font-display text-[64px] font-bold uppercase leading-[1.05] ${className}`}>{children}</h2>;
+  const m = className.match(/!text-\[(\d+)px\]/);
+  const size = titleSizes[m?.[1] ?? "64"] ?? titleSizes["64"];
+  const rest = className.replace(/!text-\[\d+px\]/, "").trim();
+  return <h2 className={`font-display font-bold uppercase leading-[1.05] ${size} ${rest}`}>{children}</h2>;
 }
 
 export function Btn({ children, href = "#", className = "" }: { children: React.ReactNode; href?: string; className?: string }) {

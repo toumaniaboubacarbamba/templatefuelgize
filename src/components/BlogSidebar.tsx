@@ -9,7 +9,7 @@ export default function BlogSidebar({
   tags = defaultTags,
 }: { placeholder?: string; categories?: [string, number][]; tags?: string[] }) {
   return (
-    <aside className="w-[300px] shrink-0">
+    <aside className="w-full shrink-0 lg:w-[300px]">
       <div className="flex h-[50px]">
         <input aria-label="Search" placeholder={placeholder} className="min-w-0 flex-1 bg-mist px-4 text-[14px] outline-none" />
         <button aria-label="Search" className="grid w-[50px] place-items-center bg-brand text-white"><Search size={16} /></button>

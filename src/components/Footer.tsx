@@ -1,5 +1,6 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import Logo from "./Logo";
+import NewsletterBand from "./NewsletterBand";
 import { container } from "./ui";
 
 const cols = [
@@ -11,40 +12,7 @@ const cols = [
 export default function Footer({ contactBand = false, hideBand = false }: { contactBand?: boolean; hideBand?: boolean }) {
 	return (
 		<>
-		{!hideBand && (
-			<section className={`relative isolate text-white ${contactBand ? "h-[320px]" : "h-[200px]"}`}>
-				<div className="absolute inset-0 -z-10 bg-cover bg-center" style={{ backgroundImage: "url(/images/newsletter-bg.webp)" }} />
-				<div className="absolute inset-0 -z-10 bg-black/55" />
-				<div className={`${container} flex h-full items-center justify-between`}>
-					{contactBand ? (
-						<>
-							<div>
-								<h2 className="font-display text-[48px] font-bold uppercase leading-none">Subscribe To Our Newsletter</h2>
-								<ul className="mt-6 space-y-3 text-[15px]">
-									<li className="flex items-center gap-4"><span className="grid h-[30px] w-[30px] place-items-center bg-brand"><Phone size={15} /></span>(208) 555-0112, (316) 555-0116</li>
-									<li className="flex items-center gap-4"><span className="grid h-[30px] w-[30px] place-items-center bg-brand"><Mail size={15} /></span>debra.holt@example.com</li>
-								</ul>
-							</div>
-							<div className="w-[497px]">
-								<p className="text-[15px] leading-6">From exploration and production to transportation and refining, we offer a wide range of products and services. Follow our newsletter!</p>
-								<label className="mt-5 block">
-									<span className="text-[11px] font-bold uppercase">Your E-Mail</span>
-									<input type="email" placeholder="Enter your E-Mail" className="mt-1 block h-[54px] w-full bg-white/25 px-5 text-[14px] outline-none placeholder:text-white" />
-								</label>
-							</div>
-						</>
-					) : (
-						<>
-							<h2 className="font-display text-[48px] font-bold uppercase leading-none">Subscribe To Our Newsletter</h2>
-							<label className="block w-[497px]">
-								<span className="text-[11px] font-bold uppercase">Your E-Mail</span>
-								<input type="email" placeholder="Enter your E-Mail" className="mt-1 block h-[54px] w-full bg-white/25 px-5 text-[14px] outline-none placeholder:text-white" />
-							</label>
-						</>
-					)}
-				</div>
-			</section>
-			)}
+			{!hideBand && <NewsletterBand contactBand={contactBand} />}
 
 			<footer className="bg-[#262626] pb-10 pt-16 text-white">
 				<div className={container}>
@@ -59,12 +27,12 @@ export default function Footer({ contactBand = false, hideBand = false }: { cont
 							</ul>
 						</div>
 						{cols.map((c) => (
-							<div key={c.h} className="border-l border-white/15 pl-8">
+							<div key={c.h} className="border-white/15 lg:border-l lg:pl-8">
 								<h4 className="text-[16px] text-white/60">{c.h}</h4>
 								<ul className="mt-5 space-y-3.5 text-[16px]">{c.l.map((x) => <li key={x}><a href="#">{x}</a></li>)}</ul>
 							</div>
 						))}
-						<div className="border-l border-white/15 pl-12">
+						<div className="border-white/15 lg:border-l lg:pl-12">
 							<h4 className="text-[16px] font-bold">Subscribe To Newsletter</h4>
 							<input type="email" placeholder="Enter your E-Mail" className="mt-5 block h-[54px] w-full bg-white/15 px-5 text-[14px] outline-none placeholder:text-white/60" />
 							<button className="mt-4 bg-brand px-10 py-[14px] text-[15px] font-bold">Subscribe</button>

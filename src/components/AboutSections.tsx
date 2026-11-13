@@ -23,11 +23,11 @@ function Ring({ value, pct }: { value: string; pct: number }) {
   );
 }
 
-export function AboutIntro() {
+export function AboutIntro({ image }: { image?: string }) {
   return (
-    <section className="pb-20 pt-24">
+    <section className="pb-12 pt-14 lg:pb-20 lg:pt-24">
       <div className={container}>
-        <div className="flex items-end justify-between gap-10">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
           <div className="max-w-[760px]">
             <Eyebrow>About Us</Eyebrow>
             <Title className="mt-5">Oil &amp; Gas Innovators: Driving Progress In The Industry</Title>
@@ -36,7 +36,11 @@ export function AboutIntro() {
             From exploration and production to transportation and refining, we offer a wide range of products and services that meet the unique needs of the oil &amp; gas industry.
           </p>
         </div>
-        <div className="mt-14 grid grid-cols-3 gap-8">
+        {image && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={image} alt="" className="mt-10 h-[280px] w-full object-cover lg:mt-14 lg:h-[560px]" />
+        )}
+        <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3">
           {rings.map((r) => (
             <div key={r.t} className="flex items-center gap-6">
               <Ring value={r.v} pct={r.pct} />
@@ -61,7 +65,7 @@ const kpis = [
 /* ---------- Avis Google + chiffres ---------- */
 export function ReviewsBar() {
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
       <div className="flex items-center gap-6">
         <div>
           <div className="text-[10px] font-bold uppercase">Reviewed on</div>
@@ -72,9 +76,9 @@ export function ReviewsBar() {
           <div className="mt-2 text-[10px] font-bold uppercase">100+ Reviews</div>
         </div>
       </div>
-      <div className="flex">
+      <div className="grid grid-cols-2 gap-y-6 sm:grid-cols-4 lg:flex">
         {kpis.map(([n, l], i) => (
-          <div key={i} className="border-l border-ink/15 px-10 first:ml-0">
+          <div key={i} className="border-l border-ink/15 px-5 lg:px-10">
             <div className="font-display text-[38px] font-bold leading-none">{n}</div>
             <div className="mt-2 text-[13px]">{l}</div>
           </div>
@@ -84,22 +88,20 @@ export function ReviewsBar() {
   );
 }
 
-export function VideoBlock() {
+export function VideoBlock({ reviews = true }: { reviews?: boolean }) {
   return (
-    <section className="pb-24">
+    <section className="pb-14 lg:pb-24">
       <div className={container}>
         <div className="text-center">
           <Eyebrow center>Video</Eyebrow>
           <Title className="mt-5 !text-[56px]">Revolutionizing Energy: Oil &amp; Gas Innovations</Title>
         </div>
-        <div className="relative mt-12 h-[600px] bg-cover bg-center" style={{ backgroundImage: "url(/images/testimonial-bg.webp)" }}>
+        <div className="relative mt-10 h-[240px] bg-cover bg-center sm:h-[400px] lg:mt-12 lg:h-[600px]" style={{ backgroundImage: "url(/images/testimonial-bg.webp)" }}>
           <a href="#" aria-label="Play" className="absolute left-1/2 top-1/2 grid h-[76px] w-[76px] -translate-x-1/2 -translate-y-1/2 place-items-center bg-brand text-white">
             <Play size={22} fill="currentColor" />
           </a>
         </div>
-        <div className="mt-12">
-          <ReviewsBar />
-        </div>
+        {reviews && <div className="mt-12"><ReviewsBar /></div>}
       </div>
     </section>
   );
@@ -118,9 +120,9 @@ export function Mission() {
       <div className={container}>
         <Eyebrow>Our Mission</Eyebrow>
         <Title className="mt-5 !text-[56px]">Explore, Develop, Deliver: Your Oil &amp; Gas Partner</Title>
-        <div className="mt-10 grid grid-cols-[805px_1fr] items-center gap-16">
+        <div className="mt-8 grid grid-cols-1 items-center gap-8 lg:mt-10 lg:grid-cols-[805px_1fr] lg:gap-16">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/prod-1.webp" alt="" className="h-[475px] w-full object-cover" />
+          <img src="/images/prod-1.webp" alt="" className="h-[260px] w-full object-cover lg:h-[475px]" />
           <ul className="space-y-6">
             {tabs.map((x, i) => (
               <li key={x.t}>
@@ -145,7 +147,7 @@ export function Clients() {
     <section className="pb-24">
       <div className={container}>
         <h3 className="text-center text-[18px] font-bold">Our Clients</h3>
-        <div className="mt-8 grid grid-cols-6 items-center border-y border-ink/10 py-8 text-center text-[20px] font-bold text-ink/50">
+        <div className="mt-8 grid grid-cols-2 items-center gap-y-6 sm:grid-cols-3 lg:grid-cols-6 border-y border-ink/10 py-8 text-center text-[20px] font-bold text-ink/50">
           {clients.map((c) => <span key={c}>{c}</span>)}
         </div>
       </div>
@@ -160,19 +162,19 @@ const cols = [
   ["How Long Does It Take To Sell A Property?", "Do I Have To Sign A Contract With A Real Estate Agency?", "What Qualifications Should I Look For In A Real Estate Agent?"],
 ];
 
-export function Faq() {
+export function Faq({ cta = "Get In Touch" }: { cta?: string }) {
   const [open, setOpen] = useState<[number, number]>([0, 0]);
   return (
-    <section className="py-24">
+    <section className="py-14 lg:py-24">
       <div className={container}>
-        <div className="flex items-end justify-between">
+        <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <Eyebrow>FAQ</Eyebrow>
             <Title className="mt-5">Frequently Asked Questions</Title>
           </div>
-          <a href="#" className="pb-3 text-[15px] font-bold">Get In Touch +</a>
+          <a href="#" className="pb-3 text-[15px] font-bold">{cta} +</a>
         </div>
-        <div className="mt-12 grid grid-cols-2 gap-[30px]">
+        <div className="mt-10 grid grid-cols-1 gap-4 lg:mt-12 lg:grid-cols-2 lg:gap-[30px]">
           {cols.map((col, c) => (
             <div key={c} className="space-y-4">
               {col.map((q, i) => {

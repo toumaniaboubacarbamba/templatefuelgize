@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { ChevronDown, MapPin, Mail, Phone, Plus, ShoppingBag } from "lucide-react";
 import Logo from "./Logo";
+import MobileNav from "./MobileNav";
+import { nav } from "./nav-data";
+
 
 type IconProps = { size?: number };
 const svg = (d: string) => function Icon({ size = 15 }: IconProps) {
@@ -11,43 +14,25 @@ const Facebook = svg("M13.500 21v-7.500h2.500l.4-3h-2.900V8.600c0-.9.3-1.500 1.5
 const Instagram = svg("M12 7.400A4.600 4.600 0 1 0 12 16.600 4.600 4.600 0 0 0 12 7.400zm0 7.600a3 3 0 1 1 0-6 3 3 0 0 1 0 6zM17.200 6a1.100 1.100 0 1 0 0 2.200 1.100 1.100 0 0 0 0-2.200zM12 3c-2.400 0-2.700 0-3.700.1-2.400.1-3.700 1.400-3.800 3.800C4.400 7.800 4.400 8.100 4.400 12s0 4.200.1 5.100c.1 2.400 1.400 3.700 3.800 3.800 1 .1 1.300.1 3.700.1s2.700 0 3.700-.1c2.400-.1 3.700-1.400 3.800-3.800.1-.9.1-1.200.1-5.100s0-4.200-.1-5.100c-.1-2.400-1.400-3.700-3.800-3.800C14.700 3 14.400 3 12 3z");
 
 
-const nav: { label: string; href?: string; children?: { label: string; href: string }[] }[] = [
-  { label: "Home", children: [{ label: "Home 1", href: "/" }, { label: "Home 2", href: "/home-2" }] },
-  {
-    label: "Pages",
-    children: [
-      { label: "About Us", href: "/about" },
-      { label: "Services", href: "/services" },
-      { label: "Services 2", href: "/services-2" },
-      { label: "Single Service", href: "/services/transportation-and-distribution" },
-      { label: "Production", href: "/production" },
-      { label: "Certificates", href: "/certificates" },
-      { label: "Shop", href: "/shop" },
-      { label: "Page 404", href: "/404" },
-      { label: "Coming Soon", href: "/coming-soon" },
-    ],
-  },
-  { label: "Blog", children: [{ label: "Blog", href: "/blog" }, { label: "Blog + Sidebar", href: "/blog-sidebar" }] },
-  { label: "Contact", href: "/contact" },
-];
+
 
 export default function Header({ solid = false, active = "Home" }: { solid?: boolean; active?: string }) {
   return (
     <div className={`${solid ? "relative z-20 bg-[#787750]" : "absolute inset-x-0 top-0 z-20"} text-white`}>
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-12 py-5 text-[13px]">
-        <div className="flex items-center gap-12">
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-4 py-3 text-[13px] lg:px-12 lg:py-5">
+        <div className="hidden items-center gap-12 lg:flex">
           <span className="flex items-center gap-3"><MapPin size={16} />2715 Ash Dr. San Jose, South Dakota 83475</span>
           <span className="flex items-center gap-3"><Mail size={16} />oil.industry12@example.com</span>
         </div>
         <span className="flex items-center gap-3"><Phone size={16} />(208) 555-0112, (316) 555-0116</span>
       </div>
 
-      <header className="mx-4 flex h-[80px] items-center justify-between bg-[#1a1a1a]/90 px-8 backdrop-blur overflow-visible">
+      <header className="relative mx-4 flex h-[70px] items-center justify-between bg-[#1a1a1a]/90 px-4 backdrop-blur lg:h-[80px] lg:px-8 overflow-visible">
         <Logo />
-        <nav className="ml-24 mr-auto flex items-center text-[15px] overflow-visible">
+        <nav className="ml-10 mr-auto hidden items-center text-[15px] lg:flex xl:ml-24 overflow-visible">
           {nav.map((item, i) => (
             <div key={item.label} className="flex items-center">
-              {i > 0 && <span className="mx-8 h-4 w-px bg-white/20" />}
+              {i > 0 && <span className="mx-5 h-4 w-px bg-white/20 xl:mx-8" />}
               <div className="group relative">
                 <Link
                   href={item.href ?? item.children?.[0].href ?? "#"}
@@ -75,21 +60,24 @@ export default function Header({ solid = false, active = "Home" }: { solid?: boo
             </div>
           ))}
         </nav>
-        <div className="flex items-center gap-6 text-[15px]">
-          <a href="#" className="flex items-center gap-1.5 font-bold"><Plus size={14} />Careers</a>
-          <span className="h-4 w-px bg-white/20" />
-          <div className="flex gap-1.5">
-            {[Twitter, Facebook, Instagram].map((Icon, i) => (
-              <a key={i} href="#" className="grid h-8 w-8 place-items-center bg-white/10 hover:bg-brand"><Icon size={15} /></a>
-            ))}
+        <div className="flex items-center gap-4 text-[15px] lg:gap-6">
+          <div className="hidden items-center gap-6 xl:flex">
+            <a href="#" className="flex items-center gap-1.5 font-bold"><Plus size={14} />Careers</a>
+            <span className="h-4 w-px bg-white/20" />
+            <div className="flex gap-1.5">
+              {[Twitter, Facebook, Instagram].map((Icon, i) => (
+                <a key={i} href="#" className="grid h-8 w-8 place-items-center bg-white/10 hover:bg-brand"><Icon size={15} /></a>
+              ))}
+            </div>
           </div>
           <a href="#" className="relative">
             <ShoppingBag size={18} />
             <span className="absolute -right-2 -top-2 grid h-4 w-4 place-items-center rounded-full bg-brand text-[10px]">0</span>
           </a>
-          <a href="#" className="flex items-center gap-2 border border-white/60 px-5 py-3 font-bold hover:bg-brand hover:border-brand">
+          <a href="/contact" className="hidden items-center gap-2 border border-white/60 px-5 py-3 font-bold hover:border-brand hover:bg-brand lg:flex">
             Contact us <Plus size={14} />
           </a>
+          <MobileNav active={active} />
         </div>
       </header>
     </div>
